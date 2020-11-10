@@ -147,8 +147,8 @@ return [
     'new_password' => 'New Password',
     'update_profile' => 'Update Profile',
     'change_password' => 'Change Password',
-    'kbsh' => 'tfsel',
-    'khabsh' => 'Tafsseel',
+    'kbsh' => 'dr-rania',
+    'khabsh' => 'Dr-Rania',
     'coupon_not_found' => 'Coupon is not correct',
     'coupon_expired' => 'Expired Coupon',
 
