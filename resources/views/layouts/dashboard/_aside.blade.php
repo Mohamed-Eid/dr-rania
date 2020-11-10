@@ -41,6 +41,11 @@
                     <i class="fa fa-graduation-cap"></i><span>@lang('site.congress')</span></a>
             </li>
 
+            <li class="{{ route('dashboard.publications.index') == url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.publications.index') }}">
+                    <i class="fa fa-graduation-cap"></i><span>@lang('site.publications')</span></a>
+            </li>
+
         </ul>
 
     </section>
