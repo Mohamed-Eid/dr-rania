@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 Route::group(
     [        
         'prefix' => '',
@@ -20,47 +17,14 @@ Route::group(
             Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail');
 
 
-            Route::get('area_by_city_id/{city}','DelarController@areas_by_city_id')->name('get_area_by_city');
-
             Route::middleware(['auth'])->group(function(){
                 Route::get('/','DashboardController@index')->name('index');
 
                 //user routes
                 Route::resource('users' , 'UserController');
-                Route::resource('/categories','CategoryController');
-                Route::resource('/sub_categories','SubcategoryController');
-                
-                Route::resource('/overview_sub_categories','OverviewSubcategoryController');
 
 
-                Route::get('delete_product_image/{image}','ProductController@remove_image')->name('products.delete_image');
-                Route::resource('/products','ProductController');
-
-                Route::resource('/sectors','SectorController');
-
-                Route::resource('/applicants','ApplicantController')->only(['index','destroy']);
-
- 
-                Route::resource('/cities','CityController');
-                Route::resource('cities.areas','City\AreaController');
-
-                Route::resource('/delars','DelarController');
-
-                Route::resource('/partners','PartnerController');
-
-                Route::resource('/testmonials','TestmonialController');
-                Route::resource('/cultures','CultureController');
-
-                Route::resource('/departments','DepartmentController');
-                Route::resource('/jobs','JobController');
-
-
-                Route::resource('/blog','PostController');
-                Route::resource('/pages','PageController');
-
-                Route::post('/pages/{page}/upload_images','PageController@upload_images')->name('pages.upload_images');
-
-                Route::delete('/pages/{page}/delete_image/{id}','PageController@delete_image')->name('pages.delete_image');
+                Route::resource('/awards','AwardController')->except(['show']);
 
 
                 Route::get('settings/all','SettingController@all')->name('settings.all_settings');
@@ -72,10 +36,6 @@ Route::group(
 
                 Route::resource('/settings','SettingController');
 
-                
-
-                Route::get('/contact_messages','ContactMessageController@index')->name('contact.index');
-                Route::delete('/contact_messages/{message}','ContactMessageController@destroy')->name('contact.destroy');
 
 
                 Route::get('profile','ProfileController@edit')->name('profiles.edit');

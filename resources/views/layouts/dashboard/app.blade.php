@@ -19,12 +19,19 @@
         <link rel="stylesheet" href="{{ asset('dashboard/css/rtl.css') }}">
 
         <style>
-            body, h1, h2, h3, h4, h5, h6 {
+            body, h1, h2, h3, h4, h5, h6 , a {
                 font-family: 'Cairo', sans-serif !important;
             }
         </style>
     @else
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+        {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> --}}
+        {{-- <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet"> --}}
+        <style>
+            body, h1, h2, h3, h4, h5, h6 {
+                font-family: 'Cairo', sans-serif !important;
+            }
+        </style>
         <link rel="stylesheet" href="{{ asset('dashboard/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('dashboard/css/AdminLTE.min.css') }}">
     @endif

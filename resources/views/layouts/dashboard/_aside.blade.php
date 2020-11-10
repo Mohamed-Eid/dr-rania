@@ -31,6 +31,11 @@
                     <i class="fa fa-users"></i><span>@lang('site.users')</span></a>
             </li>
 
+            <li class="{{ route('dashboard.awards.index') == url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.awards.index') }}">
+                    <i class="fa fa-graduation-cap"></i><span>@lang('site.awards')</span></a>
+            </li>
+
         </ul>
 
     </section>
