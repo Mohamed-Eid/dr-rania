@@ -1,0 +1,20 @@
++===================================+
+| New Account Info                  |
++===================================+
+| Domain: tafsseel.com
+| Ip: 51.89.148.178 (n)
+| HasCgi: y
+| UserName: tafsseel
+| PassWord: 4K1lb(@9k)vr
+| CpanelMod: paper_lantern
+| HomeRoot: /home
+| Quota: unlimited
+| NameServer1: ns1.mrhbaa.com
+| NameServer2: ns2.mrhbaa.com
+| NameServer3: 
+| NameServer4: 
+| Contact Email: mrhbaa.com@outlook.com
+| Package: default
+| Feature List: default
+| Language: en
++===================================+
