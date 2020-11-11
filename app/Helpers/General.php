@@ -41,9 +41,6 @@ function get_video_id($link){
     return $match[1];
 }
 
-function pages(){
-    return \App\Page::all();
-}
 
 
 

@@ -6,14 +6,14 @@
 
         <section class="content-header">
 
-            <h1>@lang('site.publications')
+            <h1>@lang('site.theses')
             </h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard.index')}}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a>
                 </li>
-                <li><a href="{{route('dashboard.publications.index')}}">@lang('site.publications')</a></li>
-                <li class="active"></i> @lang('site.edit')</li>
+                <li><a href="{{route('dashboard.theses.index')}}">@lang('site.theses')</a></li>
+                <li class="active"></i> @lang('site.add')</li>
 
             </ol>
         </section>
@@ -22,42 +22,43 @@
 
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title" style="margin-bottom: 10px;">@lang('site.edit')</h3>
+                    <h3 class="box-title" style="margin-bottom: 10px;">@lang('site.add')</h3>
                 </div>
                 <div class="box-body">
 
                     @include('partials._errors')
-                    <form action="{{ route('dashboard.publications.update',$publication) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('dashboard.theses.update' , $thesis) }}" method="post" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group">
-                            <label>@lang('site.type')</label>
-
-                            <select name="type" class="form-control">
-                                @php
-                                    $types = ['book','research','article'];
-                                @endphp
-                                @foreach ($types as $type)
-                                <option value="{{$type}}" {{ $publication->type == $type ? 'selected' : '' }}>{{ ucwords($type) }}</option>
-                                @endforeach 
-                            </select>
-                        </div>
-
-                        <div class="form-group">
                             <label>@lang('site.title')</label>
-                            <input type="text" name="title" class="form-control" value="{{ $publication->title }}"
+                            <input type="text" name="title" class="form-control" value="{{ $thesis->title }}"
+                                   required>
+                        </div>
+
+                        
+                        <div class="form-group">
+                            <label>@lang('site.degree')</label>
+                            <input type="text" name="degree" class="form-control" value="{{ $thesis->degree }}"
+                                   required>
+                        </div>
+
+                        
+                        <div class="form-group">
+                            <label>@lang('site.student_name')</label>
+                            <input type="text" name="student_name" class="form-control" value="{{ $thesis->student_name }}"
+                                   required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>@lang('site.supervisors')</label>
+                            <input type="text" name="supervisors" class="form-control" value="{{ $thesis->supervisors }}"
                                    required>
                         </div>
 
                         <div class="form-group">
-                            <label>@lang('site.body')</label>
-                            <input type="text" name="body" class="form-control" value="{{ $publication->body }}"
-                                   required>
-                        </div>
-
-                        <div class="form-group">
-                            <label>@lang('site.date')</label>
-                            <input type="date" name="date" class="form-control" value="{{ $publication->date }}"
+                            <label>@lang('site.discussion_year')</label>
+                            <input type="text" name="discussion_year" class="form-control" value="{{ $thesis->discussion_year }}"
                                    required>
                         </div>
 
@@ -65,12 +66,12 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>@lang('site.icon')</label>
-                                    <input type="file" name="icon" class="form-control image">
+                                    <label>@lang('site.image')</label>
+                                    <input type="file" name="image" class="form-control image">
                                 </div>
         
                                 <div class="form-group">
-                                    <img src="{{ $publication->icon_path }}"
+                                    <img src="{{ $thesis->image_path }}"
                                          class="img-thumbnail image-preview" style="width: 100px;">
                                 </div>
         
@@ -84,7 +85,7 @@
         
                                 <div class="form-group">
                                     <iframe class="pdf-preview"
-                                    src="{{ $publication->pdf_path }}" type="application/pdf"
+                                    src="{{ $thesis->pdf_path }}" type="application/pdf"
                                     width="100%" height="100%"
                                     ></iframe>
                                 </div>
@@ -94,7 +95,7 @@
 
                         
                         <div class="form-group">
-                            <button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i>@lang('site.save')
+                            <button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i>@lang('site.add')
                             </button>
                         </div>
 

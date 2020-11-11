@@ -46,6 +46,21 @@
                     <i class="fa fa-graduation-cap"></i><span>@lang('site.publications')</span></a>
             </li>
 
+            <li class="{{ route('dashboard.theses.index') == url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.theses.index') }}">
+                    <i class="fa fa-graduation-cap"></i><span>@lang('site.theses')</span></a>
+            </li>
+
+            <li class="{{ route('dashboard.lectures.index') == url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.lectures.index') }}">
+                    <i class="fa fa-graduation-cap"></i><span>@lang('site.lectures')</span></a>
+            </li>
+
+            <li class="{{ route('dashboard.workshops.index') == url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.workshops.index') }}">
+                    <i class="fa fa-graduation-cap"></i><span>@lang('site.workshops')</span></a>
+        </li>
+
         </ul>
 
     </section>

@@ -6,13 +6,13 @@
 
         <section class="content-header">
 
-            <h1>@lang('site.theses')
+            <h1>@lang('site.lectures')
             </h1>
 
             <ol class="breadcrumb">
                 <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a>
                 </li>
-                <li class="active"></i> @lang('site.theses')</li>
+                <li class="active"></i> @lang('site.lectures')</li>
             </ol>
         </section>
 
@@ -20,10 +20,10 @@
 
             <div class="box box-primary">
                 <div class="box-header with-border">
-                    <h3 class="box-title" style="margin-bottom: 10px;">@lang('site.theses')
-                        <small>{{ $theses->total() }}</small>
+                    <h3 class="box-title" style="margin-bottom: 10px;">@lang('site.lectures')
+                        <small>{{ $lectures->total() }}</small>
                     </h3>
-                    <form action="{{ route('dashboard.theses.index') }}" method="get">
+                    <form action="{{ route('dashboard.lectures.index') }}" method="get">
                         <div class="row">
 
                             <div class="col-md-4">
@@ -35,7 +35,7 @@
                                 <button type="submit" class="btn btn-primary"><i
                                         class="fa fa-search"></i>@lang('site.search')
                                 </button>
-                                <a href="{{ route('dashboard.theses.create') }}" class="btn btn-primary"><i
+                                <a href="{{ route('dashboard.lectures.create') }}" class="btn btn-primary"><i
                                     class="fa fa-plus"></i>@lang('site.add')</a>
                             </div>
                         </div>
@@ -44,54 +44,45 @@
                 </div>
                 <div class="box-body">
 
-                    @if ($theses->count() > 0)
+                    @if ($lectures->count() > 0)
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th style="width: 10px">#</th>
                                     <th>@lang('site.title')</th>
-                                    <th>@lang('site.degree')</th>
-                                    <th>@lang('site.stuednt_name')</th>
-                                    <th>@lang('site.supervisors')</th>
-                                    <th>@lang('site.image')</th>
-                                    <th>@lang('site.pdf')</th>
+                                    <th>@lang('site.video')</th>
                                     <th>@lang('site.action')</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @foreach ($theses as $index => $thesis)
+                                @foreach ($lectures as $index => $lecture)
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
-                                        <td>{{ $thesis->title }}</td>
-                                        <td>{{ $thesis->degree }}</td>
-                                        <td>{{ $thesis->stuednt_name }}</td>
-                                        <td>{{ $thesis->supervisors }}</td>
-                                        <td><img src="{{ $thesis->image_path }}" class="img-thumbnail" style="width: 50px;">
-
+                                        <td>{{ $lecture->title }}</td>
                                         <td>
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
-                                                data-target="#modal-default-{{ $thesis->id }}">
+                                                data-target="#modal-default-{{ $lecture->id }}">
                                                 <i class="fa fa-file-image-o"></i> @lang('site.view_pdf')
                                             </button>
-                                            <div class="modal fade" id="modal-default-{{ $thesis->id }}">
+                                            <div class="modal fade" id="modal-default-{{ $lecture->id }}">
                                                 <div class="modal-dialog  modal-dialog-centered modal-lg">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span></button>
+                                                                <p>{{ $lecture->body }}</p>
                                                         </div>
                                                         <div class="modal-body text-center" style="height: 500px;">
-                                                            <iframe
-                                                            src="{{ $thesis->pdf_path }}" type="application/pdf"
-                                                            width="100%" height="100%"
-                                                            ></iframe>
+                                                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{ $lecture->video_id }}" 
+                                                            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                                            allowfullscreen></iframe>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-default pull-left"
                                                                 data-dismiss="modal">Close</button>
-                                                            <a href="{{ $thesis->pdf_path }}" class="btn btn-warning pull-left" download>Download</a>
+                                                            <a href="{{ $lecture->pdf_path }}" class="btn btn-warning pull-left" download>Download</a>
 
                                                         </div>
                                                     </div>
@@ -103,15 +94,15 @@
                                         </td>
 
 
-                                        <td>{{ $thesis->created_at->diffForHumans() }}</td>
+                                        <td>{{ $lecture->created_at->diffForHumans() }}</td>
                                         <td>
                                             <a class="btn btn-info btn-sm"
-                                            href="{{route('dashboard.theses.edit' , $thesis->id)}}"><i
+                                            href="{{route('dashboard.lectures.edit' , $lecture->id)}}"><i
                                                     class="fa fa-edit"></i>@lang('site.edit')
                                             </a>
 
                                             <form method="post"
-                                                action="{{ route('dashboard.theses.destroy', $thesis->id) }}"
+                                                action="{{ route('dashboard.lectures.destroy', $lecture->id) }}"
                                                 style="display: inline-block">
                                                 @csrf
                                                 @method('delete')
@@ -125,7 +116,7 @@
                             </tbody>
 
                         </table>
-                        {{ $theses->appends(request()->query())->links() }}
+                        {{ $lectures->appends(request()->query())->links() }}
                     @else
                         <h2>@lang('site.no_data_found')</h2>
                     @endif

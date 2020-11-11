@@ -10,7 +10,7 @@ class Thesis extends Model
     
     protected $appends = ['image_path','pdf_path'];
 
-    public  function getIconPathAttribute(){
+    public  function getImagePathAttribute(){
         return asset('uploads/thesis_images/'.$this->image);
     }
 
