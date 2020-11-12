@@ -59,7 +59,12 @@
             <li class="{{ route('dashboard.workshops.index') == url()->current() ? 'active' : '' }}">
                 <a href="{{ route('dashboard.workshops.index') }}">
                     <i class="fa fa-graduation-cap"></i><span>@lang('site.workshops')</span></a>
-        </li>
+            </li>
+
+            <li class="{{ route('dashboard.esteems.index') == url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.esteems.index') }}">
+                    <i class="fa fa-graduation-cap"></i><span>@lang('site.esteems')</span></a>
+            </li>
 
         </ul>
 

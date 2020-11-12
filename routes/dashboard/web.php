@@ -31,6 +31,7 @@ Route::group(
                 Route::resource('/theses','ThesisController')->except(['show']);
                 Route::resource('/lectures','LectureController')->except(['show']);
                 Route::resource('/workshops','WorkshopController')->except(['show']);
+                Route::resource('/esteems','EsteemController')->except(['show']);
 
 
                 Route::get('settings/all','SettingController@all')->name('settings.all_settings');

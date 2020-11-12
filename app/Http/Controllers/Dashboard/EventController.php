@@ -19,7 +19,8 @@ class EventController extends Controller
             return $q->where('title','like','%'.$request->search.'%');
         })->latest()->paginate(10);
 
-        return view('dashboard.congress.index',compact('events'));    }
+        return view('dashboard.congress.index',compact('events')); 
+    }
 
     /**
      * Show the form for creating a new resource.

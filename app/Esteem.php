@@ -4,18 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class Esteem extends Model
 {
     protected $guarded = [];
-    
+
     protected $appends = ['image_path'];
 
     public  function getImagePathAttribute(){
-        return asset('uploads/congress_images/'.$this->image);
+        return asset('uploads/esteem_images/'.$this->image);
     }
 
-    public function esteems()
+    public function esteemable()
     {
-        return $this->morphMany(Esteem::class, 'esteemable');
+        return $this->morphTo();
     }
 }
