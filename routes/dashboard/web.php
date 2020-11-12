@@ -24,6 +24,10 @@ Route::group(
                 Route::resource('users' , 'UserController');
 
 
+                Route::get('test',function (){
+                    return view('dashboard.pages.center_in_cairo');
+                });
+
                 Route::resource('/awards','AwardController')->except(['show']);
                 Route::resource('/congress','EventController')->except(['show']);
                 Route::resource('/certifications','CertificationController')->except(['show']);
