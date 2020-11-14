@@ -1,129 +1,76 @@
-    <footer class="dark-bg sec-padding">
-        <div class="container">
-            <div class="row justify-content-center">
+  <!-- START FOOTER -->
+  <footer>
 
-                <div class="col-md-5 ">
-                    <ul class="links p-0 f-s-15">
-                        <li>
-                            <a href="#">@lang('site.home')</a>
-                        </li>
-                        <li>
-                            <a href="#">@lang('site.about_us')</a>
-                        </li>
-                        <li>
-                            <a href="inventory.php">@lang('site.inventory')</a>
-                        </li>
-                        <li>
-                            <a href="#">@lang('site.partners_testmonials')</a>
-                        </li>
-                        <li>
-                            <a href="#">@lang('site.careers')</a>
-                        </li>
-                        <li>
-                            <a href="#">@lang('site.culture')</a>
-                        </li>
-                        <li>
-                            <a href="#">@lang('site.news')</a>
-                        </li>
-                        <li>
-                            <a href="#">@lang('site.delar_locator')</a>
-                        </li>
-                    </ul>
-                </div>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="footer-item logo col-sm-6 col-lg-3">
+                  <a> <span>Dr.</span>Rania </a>
+              </div>
 
-                <div class="col-md-4 ">
-                    <h4 class="m-b-20 text-white">@lang('site.contact_us')</h4>
-                    <li class="m-t-10">
-                        <a href="mailto:info@example.com">
-                            <i class="far fa-envelope  m-r-5"></i>
-                            {{ get_setting_by_key('email')->one_value }}
-                        </a>
-                    </li>
-                    <li class="text-white m-t-10">
-                        <i class="fas fa-map-marker-alt  m-r-5"></i>
-                        {{ get_setting_by_key('address')->one_value }}
-                    </li>
-                    <li class="m-t-10">
-                        <a href="tel:010010001000">
-                            <i class=" fa fa-phone-square  m-r-5"></i>
-                            {{ get_setting_by_key('contact_info')->one_value }}
-                        </a>
-                    </li>
-                </div>
+              <div class="footer-item subscribe col-sm-6 col-lg-3 ">
+                  <h5> Subscribe </h5>
+                  <div class="box">
+                      <input class="subscribe-txt" type="text" placeholder="Email Address">
+                      <a class="subscribe-btn" href="#"> <i class="fas fa-arrow-circle-right"></i> </a>
+                  </div>
+              </div>
 
-                <div class="col-md-3 col-12">
-                    <h4 class="m-b-20 text-white">@lang('site.follow_us_on')</h4>
-                    <ul class="social-icons">
-                        <li>
-                            <a href=" {{ get_setting_by_key('facebook')->one_value }}" target="_blank">
-                                <i class="fab fa-facebook" id="facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href=" {{ get_setting_by_key('linked_in')->one_value }}" target="_blank">
-                                <i class="fab fa-linkedin" id="linkedin"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ get_setting_by_key('twitter')->one_value }}" target="_blank">
-                                <i class="fab fa-twitter" id="twitter"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    @include('frontend.includes.subscribe')
+              <div class="footer-item mail col-sm-6 col-lg-3 ">
+                  <h5> Reach Dr.Rania </h5>
+                  <div class="info">
+                      <i class="far fa-envelope"></i>
+                      <div> info@dr-rania.com </div>
+                  </div>
+              </div>
 
-                </div>
-            </div>
-            <hr />
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="copyright  text-white  ">
-                        <p>Powered by <a href="">Mediaserve </a>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="copyright  text-white text-right">
-                        {{-- <p>All rights reserved for <a href=""> Capital desiel </a>
-                            &copy; 2019</p> --}}
-                        {{ get_setting_by_key('copy_rights')->value }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+              <div class="footer-item social col-sm-6 col-lg-3 ">
+                  <h5> Follow Dr.Rania </h5>
+                  <div class="accounts">
+                      <a> <i class="fab fa-facebook-square"></i> </a>
+                      <a> <i class="fab fa-linkedin"></i> </a>
+                      <a> <i class="fab fa-twitter-square"></i> </a>
+                  </div>
+              </div>
+          </div>
+      </div>
 
+      <div class="copy-right">
+          <div class="container">
+              <div class="row">
+                  <div>
+                      <h5> Powered By <span>MediaServ</span> </h5>
+                  </div>
 
-    <!-- scripts -->
-    <!-- jquery file -->
-    <script src="{{ asset('frontend/Technomasr/js/jquery.js') }}"></script>
-    <script src="{{ asset('frontend/Technomasr/js/script.js') }}"></script>
+                  <div class="ml-auto">
+                      <h5> &copy; 2020 <span>DR.</span> Rania </h5>
+                  </div>
+              </div>
+          </div>
+      </div>
 
-    <!-- bootstrap js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="{{ asset('frontend/Technomasr/bootstrap4/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('frontend/Technomasr/css/fonts/fontawesome/js/all.js') }}"></script>
+  </footer>
+  <!-- END FOOTER -->
 
-    <!-- include Owl Carousel plugin js-->
-    <script src="{{ asset('frontend/Technomasr/owl-carousel/owl.carousel.min.js') }}"></script>
+  <!-- START SCRIPTS -->
+  <!-- JQUERY -->
+  <script src="{{ asset('frontend/js/jquery-3.5.1-min.js') }}"></script>
+  <!-- POPPER JS -->
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+  </script>
+  <!-- BOOTSTRAB -->
+  <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+  <!-- NICE SCROLL -->
+  <script src="{{ asset('frontend/js/jquery.nicescroll.min.js') }}"></script>
+  <!-- WOW JS -->
+  <script src="{{ asset('frontend/js/wow.min.js') }}"></script>
+  <!-- OWL CAROUSEL -->
+  <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
+  <!-- BX SLIDER -->
+  <script src="{{ asset('frontend/js/jquery.bxslider.min.js') }}"></script>
+  <!-- CUSTOM JS -->
+  <script src="{{ asset('frontend/js/main.js') }}"></script>
 
-    <script src="{{ asset('frontend/Technomasr/js/wow.js') }}"></script>
-    <script>
-        wow = new WOW({
-            boxClass: 'wow', // default
-            animateClass: 'animated', // default
-            offset: 0, // default
-            mobile: true, // default
-            live: true // default
-        })
-        wow.init();
+  </body>
 
-    </script>
-
-    @stack('scripts')
-
-    <!-- end scripts -->
-
-    </body>
-
-    </html>
+  </html>

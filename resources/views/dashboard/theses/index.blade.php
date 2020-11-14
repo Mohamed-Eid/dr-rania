@@ -65,7 +65,7 @@
                                         <td>{{ $index + 1 }}</td>
                                         <td>{{ $thesis->title }}</td>
                                         <td>{{ $thesis->degree }}</td>
-                                        <td>{{ $thesis->stuednt_name }}</td>
+                                        <td>{{ $thesis->student_name }}</td>
                                         <td>{{ $thesis->supervisors }}</td>
                                         <td><img src="{{ $thesis->image_path }}" class="img-thumbnail" style="width: 50px;">
 

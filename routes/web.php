@@ -14,32 +14,25 @@ use Illuminate\Support\Facades\DB;
 // */
 
 
-Route::get('change_language/{locale}',function($locale){
-    
-    app()->setLocale($locale);
-    session()->put('locale',$locale);
-    //dd(session()->get('locale'));
-    //dd(app()->getLocale());
-    return redirect()->back();
 
-})->name('change_language');
+Route::name('frontend.')->group(function(){
+    Route::get('/','HomeController@index')->name('index');
 
+    Route::get('/supervise-thesis','ThesisController@index')->name('thesis.index');
+    Route::get('/congress','CongressController@index')->name('congress.index');
 
-Route::group(
-    [
-    //     'prefix' => LaravelLocalization::setLocale(),
-    //  'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
-    'middleware' => [ 'change_lang' ]    
-    ],
-    
-    function(){
-        Route::name('frontend.')->group(function(){
-        Route::get('/','HomeController@index')->name('index');
- 
-        Route::get('/search','HomeController@search')->name('search');
+    Route::get('/certifications','CertificationController@index')->name('certifications.index');
 
 
-       
-        });//end of frontend routes
-});
-  
+    Route::get('/esteems','EsteemController@index')->name('esteems.index');
+
+
+    Route::get('/lectures','TeachingController@lectures')->name('teaching.lectures.index');
+    Route::get('/workshops','TeachingController@workshops')->name('teaching.workshops.index');
+
+    Route::get('/publications/books','PublicationController@books')->name('publications.books.index');
+    Route::get('/publications/articles','PublicationController@articles')->name('publications.articles.index');
+    Route::get('/publications/researches','PublicationController@researches')->name('publications.researches.index');
+
+
+});//end of frontend routes
