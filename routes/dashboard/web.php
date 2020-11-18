@@ -1,5 +1,8 @@
 <?php
 
+use App\Award;
+use App\Setting;
+
 Route::group(
     [        
         'prefix' => '',
@@ -24,9 +27,50 @@ Route::group(
                 Route::resource('users' , 'UserController');
 
 
-                Route::get('test',function (){
-                    return view('dashboard.pages.center_in_cairo');
-                });
+
+
+                Route::get('test','UniversityCenterController@index')->name('center.index');
+                Route::post('store_awards','UniversityCenterController@store_awards')->name('store_awards');
+                Route::put('update_awards/{award}','UniversityCenterController@update_awards')->name('update_awards');
+                Route::delete('delete_awards/{award}','UniversityCenterController@delete_awards')->name('delete_awards');
+
+                Route::post('store_publications','UniversityCenterController@store_publications')->name('store_publications');
+                Route::put('update_publications/{publication}','UniversityCenterController@update_publications')->name('update_publications');
+                Route::delete('delete_publications/{publication}','UniversityCenterController@delete_publications')->name('delete_publications');
+
+                Route::post('store_workshops','UniversityCenterController@store_workshops')->name('store_workshops');
+                Route::put('update_workshops/{workshop}','UniversityCenterController@update_workshops')->name('update_workshops');
+                Route::delete('delete_workshops/{workshop}','UniversityCenterController@delete_workshops')->name('delete_workshops');
+
+                Route::post('store_videos','UniversityCenterController@store_videos')->name('store_videos');
+                Route::put('update_videos/{video}','UniversityCenterController@update_videos')->name('update_videos');
+                Route::delete('delete_videos/{video}','UniversityCenterController@delete_videos')->name('delete_videos');
+
+                Route::post('store_photos','UniversityCenterController@store_photos')->name('store_photos');
+                Route::put('update_photos/{photo}','UniversityCenterController@update_photos')->name('update_photos');
+                Route::delete('delete_photos/{photo}','UniversityCenterController@delete_photos')->name('delete_photos');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 Route::resource('/awards','AwardController')->except(['show']);
                 Route::resource('/congress','EventController')->except(['show']);

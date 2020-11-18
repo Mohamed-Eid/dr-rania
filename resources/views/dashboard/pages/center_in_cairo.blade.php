@@ -3,217 +3,135 @@
 @section('content')
 
 <div class="content-wrapper">
-    <form>
-        @include('partials._errors')
-        @csrf
-        @method('put')
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="box box-solid">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">
-                            Pelvic Floor Center In Cairo University
-                        </h3>
-                    </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <div class="box-group" id="accordion">
-                            <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
-                            <div class="panel box box-primary">
-                                <div class="box-header with-border">
-                                    <h4 class="box-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                            Section #1
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseOne" class="panel-collapse collapse in">
-                                    <div class="box-body">
-                                        <div class="row">
-                                            <div class="col-md-8">
+        <section class="content">
 
-                                                <div class="form-group">
-                                                    <label>@lang('site.section_title')</label>
-                                                    <input type="text" name="title" class="form-control"
-                                                        value="{{ old('title') }}" required>
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <label>@lang('site.descritpion')</label>
-                                                    <textarea type="text" name="body"
-                                                        class="form-control">{{ old('body') }}</textarea>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label>@lang('site.image')</label>
-                                                    <input type="file" name="image" class="form-control image">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <img src="" class="img-thumbnail image-preview"
-                                                        style="width: 100px;">
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel box box-danger">
-                                <div class="box-header with-border">
-                                    <h4 class="box-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                                            Section #2
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse collapse">
-                                    <div class="box-body">
-
-                                        @for($i=0 ; $i<4 ;  $i++)
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label>@lang('site.title')</label>
-                                                    <input type="text" name="value" class="form-control">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>@lang('site.title')</label>
-                                                    <input type="text" name="year" class="form-control">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Image</label>
-                                                    <input type="file" name="image" class="form-control"
-                                                        id="image-{{ $i }}">
-
-                                                    <div class="form-group">
-                                                        <img src="" class="img-thumbnail" id="image-preview-{{ $i }}"
-                                                            style="width: 100px;">
-                                                    </div>
-                                                    @push('scripts')
-                                                        <script>
-                                                            $("#image-{{ $i }}").change(function () {
-                                                                if (this.files && this.files[0]) {
-                                                                    var reader = new FileReader();
-
-                                                                    reader.onload = function (e) {
-                                                                        $('#image-preview-{{ $i }}').attr(
-                                                                            'src', e.target.result);
-                                                                    }
-                                                                    reader.readAsDataURL(this.files[
-                                                                    0]); // convert to base64 string
-                                                                }
-                                                            });
-
-                                                        </script>
-                                                    @endpush
-                                                </div>
-                                            </div>
-                                        @endfor
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel box box-success">
-                                <div class="box-header with-border">
-                                    <h4 class="box-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                            Section #3
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseThree" class="panel-collapse collapse">
-                                    <div class="box-body">
-
-                                        @for($i=10 ; $i<13 ;  $i++)
-                                            <div class="col-md-4">
-
-                                                <div class="row">
-
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label>@lang('site.title')</label>
-                                                            <input type="text" name="value" class="form-control">
-                                                        </div>
-        
-                                                        <div class="form-group">
-                                                            <label>@lang('site.publisher')</label>
-                                                            <input type="text" name="publisher" class="form-control">
-                                                        </div>
-        
-                                                        <div class="form-group">
-                                                            <label>@lang('site.author')</label>
-                                                            <input type="text" name="author" class="form-control">
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="col-md-6" style="border-right: 1px solid #888;">
-                                                        <div class="form-group">
-                                                            <label>@lang('site.year')</label>
-                                                            <input type="text" name="year" class="form-control">
-                                                        </div>
-        
-                                                        <div class="form-group">
-                                                            <label>Image</label>
-                                                            <input type="file" name="image" class="form-control"
-                                                                id="image-{{ $i }}">
-        
-                                                            <div class="form-group">
-                                                                <img src="" class="img-thumbnail" id="image-preview-{{ $i }}"
-                                                                    style="width: 100px;">
-                                                            </div>
-                                                            @push('scripts')
-                                                                <script>
-                                                                    $("#image-{{ $i }}").change(function () {
-                                                                        if (this.files && this.files[0]) {
-                                                                            var reader = new FileReader();
-        
-                                                                            reader.onload = function (e) {
-                                                                                $('#image-preview-{{ $i }}').attr(
-                                                                                    'src', e.target.result);
-                                                                            }
-                                                                            reader.readAsDataURL(this.files[
-                                                                            0]); // convert to base64 string
-                                                                        }
-                                                                    });
-        
-                                                                </script>
-                                                            @endpush
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-
-
-
-
-
-                                            
-                                            </div>
-                                        @endfor
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title" style="margin-bottom: 10px;">@lang('site.add')</h3>
                 </div>
-                <!-- /.box -->
+                <div class="box-body">
+
+                    @include('partials._errors')
+                    <div class="row">
+                        <div class="col-md-12">
+                          <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                
+                                @for ($i = 1; $i <= 6; $i++)
+                                <li class="{{ $i==1 ? 'active' : '' }}"><a href="#tab_{{$i}}" data-toggle="tab">SECTION #{{$i}}</a></li>               
+                                @endfor         
+                                
+                            </ul>
+
+                            <div class="tab-content">
+                                @for ($i = 1; $i <= 6; $i++)
+                                <div class="tab-pane {{ $i==1 ? 'active' : '' }}" id="tab_{{$i}}">
+                                    @if ($i == 1)
+                                    {{-- @include('dashboard.pages.awards') --}}
+                                    @elseif($i == 2)
+                                    @include('dashboard.pages.awards.index')
+                                    @elseif($i == 3)
+                                    @include('dashboard.pages.publications.index')
+                                    @elseif($i == 4)
+                                    @include('dashboard.pages.workshops.index')
+                                    @elseif($i == 5)
+                                    @include('dashboard.pages.videos.index')
+                                    @elseif($i == 6)
+                                    @include('dashboard.pages.photos.index')
+
+                                    @endif
+                                </div>
+    
+                                  <!-- /.tab-pane -->
+    
+                                  @endfor         
+                                </div>
+                            <!-- /.tab-content -->
+                          </div>
+                          <!-- nav-tabs-custom -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </div>
             </div>
-        </div>
-    </form>
+
+        </section><!-- end of content -->
+
 
 </div><!-- end of content wrapper -->
 
 @endsection
+
+
+
+@push('styles')
+<style>
+    input[type="file"] {
+  display: block;
+}
+.imageThumb {
+  max-height: 75px;
+  border: 2px solid;
+  padding: 1px;
+  cursor: pointer;
+}
+.pip {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+}
+.remove {
+  display: block;
+  background: #444;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.remove:hover {
+  background: white;
+  color: black;
+}
+</style>
+@endpush
+
+@push('scripts')
+
+<script>
+    $(document).ready(function() {
+  if (window.File && window.FileList && window.FileReader) {
+    $("#files").on("change", function(e) {
+      var files = e.target.files,
+        filesLength = files.length;
+      for (var i = 0; i < filesLength; i++) {
+        var f = files[i]
+        var fileReader = new FileReader();
+        fileReader.onload = (function(e) {
+          var file = e.target;
+          $("<span class=\"pip\">" +
+            "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+            "<br/><span class=\"remove\">Remove image</span>" +
+            "</span>").insertAfter("#files");
+          $(".remove").click(function(){
+            $(this).parent(".pip").remove();
+          });
+          
+          // Old code here
+          /*$("<img></img>", {
+            class: "imageThumb",
+            src: e.target.result,
+            title: file.name + " | Click to remove"
+          }).insertAfter("#files").click(function(){$(this).remove();});*/
+          
+        });
+        fileReader.readAsDataURL(f);
+      }
+      console.log(files);
+    });
+  } else {
+    alert("Your browser doesn't support to File API")
+  }
+});
+</script>
+
+@endpush
