@@ -16,27 +16,21 @@
                           <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
                                 
-                                @for ($i = 1; $i <= 6; $i++)
+                                @for ($i = 1; $i <= 3; $i++)
                                 <li class="{{ $i==1 ? 'active' : '' }}"><a href="#tab_{{$i}}" data-toggle="tab">SECTION #{{$i}}</a></li>               
                                 @endfor         
                                 
                             </ul>
 
                             <div class="tab-content">
-                                @for ($i = 1; $i <= 6; $i++)
+                                @for ($i = 1; $i <= 3; $i++)
                                 <div class="tab-pane {{ $i==1 ? 'active' : '' }}" id="tab_{{$i}}">
                                     @if ($i == 1)
                                     {{-- @include('dashboard.pages.awards') --}}
                                     @elseif($i == 2)
-                                    @include('dashboard.pages.awards.index')
+                                    @include('dashboard.pages.sliders.index')
                                     @elseif($i == 3)
-                                    @include('dashboard.pages.publications.index')
-                                    @elseif($i == 4)
-                                    @include('dashboard.pages.workshops.index')
-                                    @elseif($i == 5)
-                                    @include('dashboard.pages.videos.index')
-                                    @elseif($i == 6)
-                                    @include('dashboard.pages.photos.index')
+                                    @include('dashboard.pages.services.index')
 
                                     @endif
                                 </div>

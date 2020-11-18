@@ -1,0 +1,70 @@
+<div class="box-body">
+
+    @include('partials._errors')
+
+    @include('dashboard.pages.sliders.create')
+
+</div>
+<div class="box-body">
+
+    @if($sliders->count() > 0)
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>@lang('site.title')</th>
+                <th>@lang('site.image')</th>
+                <th>@lang('site.action')</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            @foreach($sliders as $index => $slider)
+                <tr>
+                    <td>{{ $index +1 }}</td>
+                    <td>{{ $slider->title }}</td>
+                    <td><img src="{{ $slider->image_path }}" class="img-thumbnail" style="width: 50px;">
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-default-sliders-{{$slider->id}}">
+                            <i class="fa fa-edit"></i>@lang('site.edit')                            
+                        </button>
+
+                        <div class="modal fade" id="modal-default-sliders-{{$slider->id}}">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span></button>
+                                  <h4 class="modal-title">Edit {{ $slider->title }}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    @include('dashboard.pages.sliders.edit',$slider)
+                                </div>
+                              </div>
+                              <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                          </div>
+                          <!-- /.modal -->
+
+                        <form method="post"
+                                action="{{route('dashboard.delete_slider' , $slider->id)}}"
+                                style="display: inline-block">
+                            @csrf()
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger btn-sm delete"><i
+                                        class="fa fa-trash"></i>@lang('site.delete')</button>
+                        </form>
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+
+        </table>
+        {{ $sliders->appends(request()->query())->links() }}
+    @else
+        <h2>@lang('site.no_data_found')</h2>
+    @endif
+
+</div>

@@ -30,6 +30,7 @@ Route::group(
 
 
                 Route::get('test','UniversityCenterController@index')->name('center.index');
+
                 Route::post('store_awards','UniversityCenterController@store_awards')->name('store_awards');
                 Route::put('update_awards/{award}','UniversityCenterController@update_awards')->name('update_awards');
                 Route::delete('delete_awards/{award}','UniversityCenterController@delete_awards')->name('delete_awards');
@@ -51,6 +52,16 @@ Route::group(
                 Route::delete('delete_photos/{photo}','UniversityCenterController@delete_photos')->name('delete_photos');
 
 
+                Route::get('center','ExcellenceCenterController@index')->name('excellence_center.index');
+
+
+                Route::post('store_slider','ExcellenceCenterController@store_slider')->name('store_slider');
+                Route::put('update_slider/{slider}','ExcellenceCenterController@update_slider')->name('update_slider');
+                Route::delete('delete_slider/{slider}','ExcellenceCenterController@delete_slider')->name('delete_slider');
+
+                Route::post('store_services','ExcellenceCenterController@store_services')->name('store_services');
+                Route::put('update_services/{publication}','ExcellenceCenterController@update_services')->name('update_services');
+                Route::delete('delete_services/{publication}','ExcellenceCenterController@delete_services')->name('delete_services');
 
 
 
