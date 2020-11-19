@@ -26,7 +26,7 @@
                                 @for ($i = 1; $i <= 3; $i++)
                                 <div class="tab-pane {{ $i==1 ? 'active' : '' }}" id="tab_{{$i}}">
                                     @if ($i == 1)
-                                    {{-- @include('dashboard.pages.awards') --}}
+                                    @include('dashboard.pages.headers.excellence_center')
                                     @elseif($i == 2)
                                     @include('dashboard.pages.sliders.index')
                                     @elseif($i == 3)

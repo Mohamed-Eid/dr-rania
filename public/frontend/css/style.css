@@ -1448,6 +1448,8 @@ footer .copy-right span {
 
 .contact .links .subscribe .box .subscribe-btn {
   color: #0278ae;
+  border: none;
+  padding: 0;
   text-decoration: none;
   display: -webkit-box;
   display: -ms-flexbox;

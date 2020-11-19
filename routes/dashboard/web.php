@@ -95,9 +95,7 @@ Route::group(
 
                 Route::get('settings/all','SettingController@all')->name('settings.all_settings');
 
-                Route::put('/setting/contact','SettingController@update_contact')->name('setting.update_contact');
-
-                Route::put('/setting/about','SettingController@update_about')->name('setting.update_about');
+                Route::put('/setting/edit','SettingController@update_meta')->name('setting.update_edit');
 
 
                 Route::resource('/settings','SettingController');

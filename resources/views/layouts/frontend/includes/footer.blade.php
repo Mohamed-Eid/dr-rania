@@ -9,10 +9,13 @@
 
               <div class="footer-item subscribe col-sm-6 col-lg-3 ">
                   <h5> Subscribe </h5>
+                  <form method="POST" action="{{ route('frontend.pages.subscribe') }}">
+                    @csrf
                   <div class="box">
-                      <input class="subscribe-txt" type="text" placeholder="Email Address">
-                      <a class="subscribe-btn" href="#"> <i class="fas fa-arrow-circle-right"></i> </a>
+                      <input class="subscribe-txt" name="email" type="text" placeholder="Email Address">
+                      <button class="subscribe-btn" type="submit"> <i class="fas fa-arrow-circle-right"></i> </button>
                   </div>
+                  </form>
               </div>
 
               <div class="footer-item mail col-sm-6 col-lg-3 ">
@@ -70,6 +73,21 @@
   <script src="{{ asset('frontend/js/jquery.bxslider.min.js') }}"></script>
   <!-- CUSTOM JS -->
   <script src="{{ asset('frontend/js/main.js') }}"></script>
+  <!-- SWEET ALERT JS -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    @if (session('success'))
+        <script>
+            swal("{{session('success')}}","", "success");
+        </script>
+    @elseif(session('error'))
+
+        <script>
+            swal("{{ session('error') }}","", "error");
+        </script>            
+    @endif
+
+  @stack('scripts')
 
   </body>
 

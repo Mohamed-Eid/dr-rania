@@ -3,3 +3,6 @@
 @yield('content')
 
 @include('layouts.frontend.includes.footer')
+
+@push('scripts')
+@endpush

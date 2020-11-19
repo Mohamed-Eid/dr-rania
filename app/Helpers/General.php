@@ -76,18 +76,5 @@ function get_setting_by_key($key){
     return \App\Setting::where('key',$key)->first();
 }
 
-function get_route($item){
-    return [
-        'news'        => route('frontend.blog.show',$item),
-        'partners'    => route('frontend.partners.index'),
-        'testmonials' => route('frontend.partners.index'),
-        'poducts'     => route('frontend.products.show',$item),
-        'categories'  => route('frontend.categories.index'),
-        'sectors'     => route('frontend.sectors.index'),
-        'jobs'        => route('frontend.careers.index'),
-        'cultures'    => route('frontend.cultures.index'),
-        'delars'      => route('frontend.delars.index'),
-    ];
-}
 
 ?>

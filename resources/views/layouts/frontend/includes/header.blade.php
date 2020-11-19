@@ -121,7 +121,7 @@
 
             <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                 <div class="navbar-nav main-nav ml-auto">
-                    <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="{{ route('frontend.index') }}">Home <span class="sr-only">(current)</span></a>
 
                     <div class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -130,9 +130,9 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="basic-info.php"> Dr.Rania</a>
-                            <a class="dropdown-item" href="international-esteem.php">International Esteem</a>
-                            <a class="dropdown-item" href="supervise-thesis.php">Supervise Thesis</a>
-                            <a class="dropdown-item" href="certification.php">Certifications</a>
+                            <a class="dropdown-item" href="{{ route('frontend.esteems.index') }}">International Esteem</a>
+                            <a class="dropdown-item" href="{{ route('frontend.thesis.index') }}">Supervise Thesis</a>
+                            <a class="dropdown-item" href="{{ route('frontend.certifications.index') }}">Certifications</a>
                         </div>
                     </div>
 
@@ -142,9 +142,9 @@
                             Publications
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="original-research.php"> Original Research </a>
-                            <a class="dropdown-item" href="review-articles.php">Review Articles </a>
-                            <a class="dropdown-item" href="book-chapter.php">Book Chapter</a>
+                            <a class="dropdown-item" href="{{ route('frontend.publications.researches.index') }}"> Original Research </a>
+                            <a class="dropdown-item" href="{{ route('frontend.publications.articles.index') }}">Review Articles </a>
+                            <a class="dropdown-item" href="{{ route('frontend.publications.books.index') }}">Book Chapter</a>
                         </div>
                     </div>
 
@@ -154,15 +154,15 @@
                             Teaching
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="training-workshop.php"> Training Workshops </a>
-                            <a class="dropdown-item" href="video-lectures.php"> Video Lectures </a>
+                            <a class="dropdown-item" href="{{ route('frontend.teaching.workshops.index') }}"> Training Workshops </a>
+                            <a class="dropdown-item" href="{{ route('frontend.teaching.lectures.index') }}"> Video Lectures </a>
                         </div>
-                    </div>
+                    </div> 
 
-                    <a class="nav-link" href="congress.php">Congress</a>
-                    <a class="nav-link" href="pelvic-excellence.php">Pelvic Floor Center Of Excellence</a>
-                    <a class="nav-link" href="pelvic-cairo.php">Pelvic Floor Center In Cairo University</a>
-                    <a class="nav-link" href="contact.php">Contact Dr.Rania</a>
+                    <a class="nav-link" href="{{ route('frontend.congress.index') }}">Congress</a>
+                    <a class="nav-link" href="{{ route('frontend.pages.center_of_excellence') }}">Pelvic Floor Center Of Excellence</a>
+                    <a class="nav-link" href="{{ route('frontend.pages.center_of_cairo') }}">Pelvic Floor Center In Cairo University</a>
+                    <a class="nav-link" href="{{ route('frontend.pages.contact_us') }}">Contact Dr.Rania</a>
                 </div>
             </div>
         </div>

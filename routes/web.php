@@ -5,11 +5,17 @@ Route::name('frontend.')->group(function(){
 
     Route::get('/supervise-thesis','ThesisController@index')->name('thesis.index');
     Route::get('/congress','CongressController@index')->name('congress.index');
-
     Route::get('/certifications','CertificationController@index')->name('certifications.index');
 
 
     Route::get('/esteems','EsteemController@index')->name('esteems.index');
+    Route::get('/pages/pelvic_floor_center_in_cairo_university','PageController@center_of_cairo')->name('pages.center_of_cairo');
+    Route::get('/pages/pelvic_floor_center_of_excellence','PageController@center_of_excellence')->name('pages.center_of_excellence');
+    
+    Route::get('/contact_us','PageController@contact_us')->name('pages.contact_us');
+    Route::post('/contact_us_store','PageController@contact_us_store')->name('pages.contact_us.store');
+    
+    Route::post('/subscribe','PageController@subscribe')->name('pages.subscribe');
 
 
     Route::get('/lectures','TeachingController@lectures')->name('teaching.lectures.index');

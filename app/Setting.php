@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     protected $guarded = [];
-    protected $casts = [
-        'value' => 'array',
-    ];
+
+    public  function getImagePathAttribute(){
+        return asset('uploads/setting_images/'.$this->image);
+    }
 }
