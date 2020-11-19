@@ -38,8 +38,6 @@
                                 
                                 <li class="active"><a href="#tab_{{$name}}" data-toggle="tab">@lang('site.'.$name)</a></li>               
                                 
-                                {{-- @elseif($name=='general_settings') --}}
-
                                 @else
                                 
                                 <li><a href="#tab_{{$name}}" data-toggle="tab">@lang('site.'.$name)</a></li>
@@ -52,40 +50,14 @@
                             <div class="tab-content">
                               @foreach ($data as $name=>$items)
                                 <div class="tab-pane {{ $name==array_key_first($data) ? 'active' : '' }}" id="tab_{{$name}}">
-                                    @if ($name == 'slider_settings')
+                                    @if ($name == 'center_social_settings')
                                     
-                                    @include('dashboard.settings.slider',['items' => $items])
+                                    @include('dashboard.settings.social',['items' => $items])
                                     
-                                    @elseif($name == 'about_center_settings')
+                                    @elseif($name == 'dr_social_settings')
                                     
-                                    @include('dashboard.settings.about_center',['items' => $items])                                    
+                                    @include('dashboard.settings.social',['items' => $items])                                    
                                     
-                                    @elseif($name == 'features_settings')
-                                    
-                                    @include('dashboard.settings.features',['items' => $items])                                    
-                                    
-                                    @elseif($name == 'contact_settings')
-                                    @include('dashboard.settings.contact',['items' => $items])                                    
-
-                                    @elseif($name == 'service_features_settings')
-                                    @include('dashboard.settings.features',['items' => $items])                                    
-                                   
-                                    @elseif($name == 'meta_settings')
-                                    @include('dashboard.settings.meta',['items' => $items])                                    
-                                   
-                                    @elseif($name == 'about_settings')
-                                    @include('dashboard.settings.about_page',['items' => $items])                                    
-                                   
-                                    @elseif($name == 'career_settings')
-                                    @include('dashboard.settings.career',['items' => $items])                                    
-                                    
-                                    @elseif($name == 'culture_settings')
-                                    @include('dashboard.settings.culture',['items' => $items])
-                                    
-                                    @elseif($name == 'general_settings')
-                                    @include('dashboard.settings.general',['items' => $items])
-
-
                                     @endif
                                 </div>
     

@@ -93,8 +93,6 @@
                 </div>                    
                 @endforeach
 
-
-
               </div>
             </div>
 
@@ -109,9 +107,9 @@
         <div class="center-contact-form col-lg-6">
           <ul>
             <li class="ul-header"> Contact Center </li>
-            <li> <i class="far fa-envelope"></i> pelvic.floor.center@rania-farouk-elsayed.com </li>
-            <li> <i class="fas fa-phone" style="transform: rotateY(180deg)"></i> 01003216598 </li>
-            <li> <i class="fas fa-mobile-alt"></i> +20100322598412 </li>
+            <li> <i class="far fa-envelope"></i> {{get_setting_by_key('center_email')->value}} </li>
+            <li> <i class="fas fa-phone" style="transform: rotateY(180deg)"></i> {{get_setting_by_key('center_phone_1')->value}} </li>
+            <li> <i class="fas fa-mobile-alt"></i> {{get_setting_by_key('center_phone_2')->value}}</li>
           </ul>
 
           <form method="POST" action="{{ route('frontend.pages.contact_us.store') }}">
@@ -139,9 +137,9 @@
         <div class="center-follow text-center col-lg-6">
           <h5> Follow Center </h5>
           <ul class="center-social">
-            <li> <a href="#"> <i class="fab fa-facebook-square"></i> </a> </li>
-            <li> <a href="#"> <i class="fab fa-linkedin"></i> </a> </li>
-            <li> <a href="#"> <i class="fab fa-twitter-square"></i> </a> </li>
+            <li> <a href="{{get_setting_by_key('center_facebook_url')->value}}"> <i class="fab fa-facebook-square"></i> </a> </li>
+            <li> <a href="{{get_setting_by_key('center_linkedin_url')->value}}"> <i class="fab fa-linkedin"></i> </a> </li>
+            <li> <a href="{{get_setting_by_key('center_twitter_url')->value}}"> <i class="fab fa-twitter-square"></i> </a> </li>
           </ul>
           <div class="center-location">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110532.89549083744!2d31.30329406893522!3d30.032468600716175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583c1380cba7ef%3A0xd541260e9e06978d!2sNasr%20City%2C%20Cairo%20Governorate!5e0!3m2!1sen!2seg!4v1601175174423!5m2!1sen!2seg" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>

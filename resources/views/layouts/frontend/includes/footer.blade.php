@@ -22,16 +22,16 @@
                   <h5> Reach Dr.Rania </h5>
                   <div class="info">
                       <i class="far fa-envelope"></i>
-                      <div> info@dr-rania.com </div>
+                      <div> {{get_setting_by_key('dr_email')->value}} </div>
                   </div>
               </div>
 
               <div class="footer-item social col-sm-6 col-lg-3 ">
                   <h5> Follow Dr.Rania </h5>
                   <div class="accounts">
-                      <a> <i class="fab fa-facebook-square"></i> </a>
-                      <a> <i class="fab fa-linkedin"></i> </a>
-                      <a> <i class="fab fa-twitter-square"></i> </a>
+                      <a href="{{get_setting_by_key('dr_facebook_url')->value}}"> <i class="fab fa-facebook-square"></i> </a>
+                      <a href="{{get_setting_by_key('dr_linkedin_url')->value}}"> <i class="fab fa-linkedin"></i> </a>
+                      <a href="{{get_setting_by_key('dr_twitter_url')->value}}"> <i class="fab fa-twitter-square"></i> </a>
                   </div>
               </div>
           </div>

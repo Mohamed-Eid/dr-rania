@@ -1,33 +1,40 @@
-<div class="row">                                    
+<form action="{{ route('dashboard.setting.update_edit') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('put') 
+    <div class="row">                                    
+    
     @foreach ($items as $item)
-            <div class="col-md-6">
-                <form action="{{ route('dashboard.settings.update',$item) }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('put') 
-                    
+    @if ($item->type == 'string')
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>{{ $item->field_name }}</label>
+            <input type="text" name="{{$item->id}}[value]" class="form-control" value="{{$item->value}}" >
+        </div>
+    </div>
+    @elseif($item->type == 'text')
+    <div class="col-md-6">
+        <div class="form-group">
+            <label>{{ $item->field_name }}</label>
+            <textarea  name="{{$item->id}}[value]" class="form-control" required>{{ $item->value }}</textarea>
+        </div>
+    </div>
+    @elseif($item->type == 'image')
+    <div class="form-group">
+        <label>@lang('site.image')</label>
+        <input type="file" name="{{$item->id}}[image]" class="form-control image">
+    </div>
 
-                    @if ($item->key=='map')
-                    <div class="form-group">
-                        <label>{{ $item->name }}</label>
-                        <textarea type="text" name="ar[value]" class="form-control" rows="4">
-                            {{$item->translate('ar')->value}}
-                        </textarea>
-                    </div>
-                    @else
-                    <div class="form-group">
-                        <label>{{ $item->name }}</label>
-                        <input type="text" name="ar[value]" class="form-control" value="{{$item->translate('ar')->value}}" >
-                    </div>
-                    @endif
+    <div class="form-group">
+        <img src="{{ $item->image_path ?? '' }}"
+             class="img-thumbnail image-preview" style="width: 100px;">
+    </div>
+    @endif
 
 
-                    <div class="form-group">
-                        <button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i>@lang('site.save')
-                        </button>
-                    </div>
-                </form>  
-                @include('dashboard.settings.delete_button')                                                   
-                                                  
-            </div>
     @endforeach
 </div>
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i>@lang('site.save')
+        </button>
+    </div>
+</form>  
