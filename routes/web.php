@@ -9,9 +9,13 @@ Route::name('frontend.')->group(function(){
 
 
     Route::get('/esteems','EsteemController@index')->name('esteems.index');
+    
     Route::get('/pages/pelvic_floor_center_in_cairo_university','PageController@center_of_cairo')->name('pages.center_of_cairo');
     Route::get('/pages/pelvic_floor_center_of_excellence','PageController@center_of_excellence')->name('pages.center_of_excellence');
     
+    Route::get('/basic_info','PageController@basic_info')->name('pages.basic_info');
+
+
     Route::get('/contact_us','PageController@contact_us')->name('pages.contact_us');
     Route::post('/contact_us_store','PageController@contact_us_store')->name('pages.contact_us.store');
     

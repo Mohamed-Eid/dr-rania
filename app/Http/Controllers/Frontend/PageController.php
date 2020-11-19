@@ -57,6 +57,10 @@ class PageController extends Controller
         return redirect()->back()->with('success','Message Sent Successfully');
     }
 
+    public function basic_info(){
+        return view('frontend.pages.basic_info');
+    }
+
     public function subscribe(Request $request){
 
         $validator = Validator::make($request->all(), [

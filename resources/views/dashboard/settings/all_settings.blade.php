@@ -51,13 +51,11 @@
                               @foreach ($data as $name=>$items)
                                 <div class="tab-pane {{ $name==array_key_first($data) ? 'active' : '' }}" id="tab_{{$name}}">
                                     @if ($name == 'center_social_settings')
-                                    
                                     @include('dashboard.settings.social',['items' => $items])
-                                    
                                     @elseif($name == 'dr_social_settings')
-                                    
                                     @include('dashboard.settings.social',['items' => $items])                                    
-                                    
+                                    @elseif($name == 'basic_info_settings')
+                                    @include('dashboard.settings.basic_info',['items' => $items])  
                                     @endif
                                 </div>
     

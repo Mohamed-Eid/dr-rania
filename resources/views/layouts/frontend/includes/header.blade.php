@@ -129,7 +129,7 @@
                             CV Overview
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="basic-info.php"> Dr.Rania</a>
+                            <a class="dropdown-item" href="{{ route('frontend.pages.basic_info') }}"> Dr.Rania</a>
                             <a class="dropdown-item" href="{{ route('frontend.esteems.index') }}">International Esteem</a>
                             <a class="dropdown-item" href="{{ route('frontend.thesis.index') }}">Supervise Thesis</a>
                             <a class="dropdown-item" href="{{ route('frontend.certifications.index') }}">Certifications</a>
