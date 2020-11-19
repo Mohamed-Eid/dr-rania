@@ -21,7 +21,7 @@
             <div class="training-workshop-txt">  
                 {{$workshop->body}}             
             </div>
-            <a href="international-esteem.php" class="btn btn-primary"> Feedback </a>
+            <a href="{{ route('frontend.esteems.index') }}?workshop_id={{ $workshop->id }}" class="btn btn-primary"> Feedback </a>
           </div>
         </div>            
         @endforeach

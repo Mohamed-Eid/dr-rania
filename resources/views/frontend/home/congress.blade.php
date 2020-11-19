@@ -13,7 +13,7 @@
                                 <h5 class="congress-details"> <span> {{ \Carbon\Carbon::createFromFormat('Y-m-d', $event->date)->format('j F, Y')}}</span> | <span> {{$event->location}} </span>
                                 </h5>
                             </div>
-                            <a class="btn btn-primary float-r" href="international-esteem.php"> Feedback </a>
+                            <a class="btn btn-primary float-r" href="{{ route('frontend.esteems.index') }}?congress_id={{ $event->id }}"> Feedback </a>
                         </div>
                         <div class="congress-img col-sm-12 col-lg-6">
                             <img class="img-fluid"
@@ -26,7 +26,7 @@
         </div>
 
         <div class="text-center more-congress">
-            <a class="btn btn-primary" href="congress.php"> View More Congress </a>
+            <a class="btn btn-primary" href="{{ route('frontend.congress.index') }}"> View More Congress </a>
         </div>
 
 

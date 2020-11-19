@@ -6,6 +6,7 @@ use App\Esteem;
 use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Workshop;
 
 class EsteemController extends Controller
 {
@@ -31,7 +32,8 @@ class EsteemController extends Controller
     public function create()
     {
         $congress = Event::all();
-        return view('dashboard.esteems.create',compact('congress'));
+        $workshops = Workshop::all();
+        return view('dashboard.esteems.create',compact('congress','workshops'));
     }
 
     /**
@@ -51,7 +53,7 @@ class EsteemController extends Controller
             'image' => 'required',
         ]);
         
-        $data = $request->except(['congress']);
+        $data = $request->except(['congress','workshop']);
         $data['image'] = upload_image_without_resize('esteem_images',$request->image);
 
         if($request->type=="congress"){
@@ -65,6 +67,18 @@ class EsteemController extends Controller
             $congress->esteems()->create($data);
 
             return redirect()->route('dashboard.esteems.index')->with('success','تمت الإضافه بنجاح');
+        }
+        elseif($request->type=="workshop"){
+            $request->validate([
+                'workshop' => 'required',
+            ]);
+
+            $workshop = Workshop::find($request->workshop);
+
+            
+            $workshop->esteems()->create($data);
+
+            return redirect()->route('dashboard.esteems.index')->with('success','تمت الإضافه بنجاح');   
         }
 
 
@@ -85,8 +99,9 @@ class EsteemController extends Controller
     public function edit(Esteem $esteem)
     {
         $congress = Event::all();
+        $workshops = Workshop::all();
 
-        return view('dashboard.esteems.edit', compact('esteem','congress'));
+        return view('dashboard.esteems.edit', compact('esteem','congress','workshops'));
     }
 
     /**
@@ -107,7 +122,7 @@ class EsteemController extends Controller
             // 'image' => 'required',
         ]);
 
-        $data = $request->except(['congress']);
+        $data = $request->except(['congress','workshop']);
 
         if($request->has('image')){
             delete_image('esteem_images',$esteem->image);
@@ -123,6 +138,19 @@ class EsteemController extends Controller
             
             $data['esteemable_id'] = $congress->id;
             $data['esteemable_type'] = get_class($congress);
+
+            $esteem->update($data);
+
+            return redirect()->route('dashboard.esteems.index')->with('success','تم التعديل بنجاح');
+        }elseif($request->type=="workshop"){
+            $request->validate([
+                'workshop' => 'required',
+            ]);
+
+            $workshop = Workshop::find($request->workshop);
+            
+            $data['esteemable_id'] = $workshop->id;
+            $data['esteemable_type'] = get_class($workshop);
 
             $esteem->update($data);
 

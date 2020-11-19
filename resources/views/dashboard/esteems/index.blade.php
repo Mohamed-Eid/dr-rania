@@ -52,7 +52,7 @@
                                     <th>@lang('site.name')</th>
                                     <th>@lang('site.title')</th>
                                     <th>@lang('site.body')</th>
-                                    <th>@lang('site.congress')</th>
+                                    <th>@lang('site.type') - @lang('site.name')</th>
                                     <th>@lang('site.date')</th>
                                     <th>@lang('site.image')</th>
                                     <th>@lang('site.action')</th>
@@ -93,7 +93,15 @@
                                             </div>
                                             <!-- /.modal -->
                                         </td>
-                                        <td>{{ $esteem->esteemable ? $esteem->esteemable->congress_title .'-'.$esteem->esteemable->event_title : 'Home'}}</td>
+                                        <td>
+                                            @if ($esteem->esteemable && $esteem->esteemable_type == 'App\Event')
+                                            {{ 'Congress - ' .$esteem->esteemable->congress_title .'-'.$esteem->esteemable->event_title}}
+                                            @elseif($esteem->esteemable && $esteem->esteemable_type == 'App\Workshop')
+                                            {{ 'Workshop - ' .$esteem->esteemable->title}}
+                                            @else
+                                            Home
+                                            @endif
+                                        </td>
                                         <td>{{ $esteem->date }}</td>
                                         <td><img src="{{ $esteem->image_path }}" class="img-thumbnail" style="width: 50px;">
 

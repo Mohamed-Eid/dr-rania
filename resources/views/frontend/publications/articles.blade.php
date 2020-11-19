@@ -18,16 +18,16 @@
                     </div>
 
                     <!-- BUTTON TRIGGER MODAL -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#book-1">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#book-{{$publication->id}}">
                         Book Brief
                     </button>
 
                     <!--  MODAL -->
-                    <div class="modal fade" id="book-1" tabindex="-1" aria-labelledby="BookLabel" aria-hidden="true">
+                    <div class="modal fade" id="book-{{$publication->id}}" tabindex="-1" aria-labelledby="BookLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Book 1</h4>
+                                    <h4 class="modal-title">{{$publication->title}}</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>

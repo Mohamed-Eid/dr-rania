@@ -3,7 +3,7 @@
 
     <select id="style-type" name="type" class="form-control">
         @php
-            $types = ['home','congress'];
+            $types = ['home','congress','workshop'];
         @endphp
         @foreach ($types as $type)
         <option value="{{$type}}" {{ isset($esteem->type) ? ($type == $esteem->type ? 'selected' : '' ) : ''  }} >{{ ucwords($type) }}</option>
@@ -17,6 +17,16 @@
     <select name="congress" class="form-control">
         @foreach ($congress as $event)
         <option value="{{$event->id}}">{{ ucwords($event->congress_title.' - '.$event->event_title) }}</option>
+        @endforeach 
+    </select>
+</div>
+
+<div class="form-group workshop-toggler-container">
+    <label>@lang('site.workshop')</label>
+
+    <select name="workshop" class="form-control">
+        @foreach ($workshops as $workshop)
+        <option value="{{$workshop->id}}">{{ ucwords($workshop->title) }}</option>
         @endforeach 
     </select>
 </div>
@@ -66,17 +76,28 @@
                 let selectorValue = $('#style-type').children('option:checked').val();
                 if ( selectorValue == 'home' ) {
                     $('.congress-toggler-container').css( 'display' , 'none' );
+                    $('.workshop-toggler-container').css( 'display' , 'none' );
                 } else if ( selectorValue == 'congress' ) {
                     $('.congress-toggler-container').css( 'display' , 'block' );
+                    $('.workshop-toggler-container').css( 'display' , 'none' );
+                } else if ( selectorValue == 'workshop' ) {
+                    $('.workshop-toggler-container').css( 'display' , 'block' );
+                    $('.congress-toggler-container').css( 'display' , 'none' );
                 }
+
         });
 
         $('#style-type').on('change' , function(){
                 let selectorValue = $('#style-type').children('option:checked').val();
                 if ( selectorValue == 'home' ) {
                     $('.congress-toggler-container').css( 'display' , 'none' );
+                    $('.workshop-toggler-container').css( 'display' , 'none' );
                 } else if ( selectorValue == 'congress' ) {
                     $('.congress-toggler-container').css( 'display' , 'block' );
+                    $('.workshop-toggler-container').css( 'display' , 'none' );
+                } else if ( selectorValue == 'workshop' ) {
+                    $('.workshop-toggler-container').css( 'display' , 'block' );
+                    $('.congress-toggler-container').css( 'display' , 'none' );
                 }
             });
     </script>

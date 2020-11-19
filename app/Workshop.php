@@ -13,4 +13,9 @@ class Workshop extends Model
     public  function getImagePathAttribute(){
         return asset('uploads/workshop_images/'.$this->image);
     }
+
+    public function esteems()
+    {
+        return $this->morphMany(Esteem::class, 'esteemable');
+    }
 }

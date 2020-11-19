@@ -21,11 +21,11 @@
                             <div class="main-congress-role mr-auto">
                                 <h6> <span> Dr.Rania Role: </span> <br> {{ $event->role }}</h6>
                             </div>
-                            <a href="international-esteem.php" class="card-link ml-auto">Feedback <i
+                            <a href="{{ route('frontend.esteems.index') }}?congress_id={{ $event->id }}" class="card-link ml-auto">Feedback <i
                                     class="fas fa-arrow-circle-right"></i> </a>
                         </div>
                     </div>
-                </div>
+                </div> 
             @endforeach
 
         </div>
