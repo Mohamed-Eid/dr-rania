@@ -26,6 +26,18 @@
                 </a>
             </li>
 
+            <li class="{{route('dashboard.excellence_center.index')==url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.excellence_center.index') }}">
+                    <i class="fa  fa-gear"></i> @lang('site.excellence_center')
+                </a>
+            </li>
+
+            <li class="{{route('dashboard.center.index')==url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.center.index') }}">
+                    <i class="fa  fa-gear"></i> @lang('site.center_index')
+                </a>
+            </li>
+
             <li class="{{ route('dashboard.users.index') == url()->current() ? 'active' : '' }}">
                 <a href="{{ route('dashboard.users.index') }}">
                     <i class="fa fa-users"></i><span>@lang('site.users')</span></a>
@@ -64,6 +76,17 @@
             <li class="{{ route('dashboard.esteems.index') == url()->current() ? 'active' : '' }}">
                 <a href="{{ route('dashboard.esteems.index') }}">
                     <i class="fa fa-graduation-cap"></i><span>@lang('site.esteems')</span></a>
+            </li>
+
+            
+            <li class="{{ route('dashboard.contact.center_index') == url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.contact.center_index') }}">
+                    <i class="fa fa-graduation-cap"></i><span>@lang('site.center_contact_messages')</span></a>
+            </li>
+
+            <li class="{{ route('dashboard.contact.index') == url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.contact.index') }}">
+                    <i class="fa fa-graduation-cap"></i><span>@lang('site.dr_contact_messages')</span></a>
             </li>
 
         </ul>

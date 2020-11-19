@@ -29,7 +29,7 @@ Route::group(
 
 
 
-                Route::get('test','UniversityCenterController@index')->name('center.index');
+                Route::get('center_of_cairo_university','UniversityCenterController@index')->name('center.index');
 
                 Route::post('store_awards','UniversityCenterController@store_awards')->name('store_awards');
                 Route::put('update_awards/{award}','UniversityCenterController@update_awards')->name('update_awards');
@@ -52,8 +52,9 @@ Route::group(
                 Route::delete('delete_photos/{photo}','UniversityCenterController@delete_photos')->name('delete_photos');
 
 
-                Route::get('center','ExcellenceCenterController@index')->name('excellence_center.index');
-
+                
+                
+                Route::get('center_of_excellence','ExcellenceCenterController@index')->name('excellence_center.index');
 
                 Route::post('store_slider','ExcellenceCenterController@store_slider')->name('store_slider');
                 Route::put('update_slider/{slider}','ExcellenceCenterController@update_slider')->name('update_slider');
@@ -62,20 +63,6 @@ Route::group(
                 Route::post('store_services','ExcellenceCenterController@store_services')->name('store_services');
                 Route::put('update_services/{publication}','ExcellenceCenterController@update_services')->name('update_services');
                 Route::delete('delete_services/{publication}','ExcellenceCenterController@delete_services')->name('delete_services');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -95,12 +82,16 @@ Route::group(
 
                 Route::get('settings/all','SettingController@all')->name('settings.all_settings');
 
-                Route::put('/setting/edit','SettingController@update_meta')->name('setting.update_edit');
+                Route::put('/setting/edit','SettingController@update_edit')->name('setting.update_edit');
 
 
                 Route::resource('/settings','SettingController');
 
+                Route::get('/contact_messages','MessageController@index')->name('contact.index');
 
+                Route::get('/center_contact_messages','MessageController@center_index')->name('contact.center_index');
+
+                Route::delete('/contact_messages/{message}','MessageController@destroy')->name('contact.destroy');
 
                 Route::get('profile','ProfileController@edit')->name('profiles.edit');
                 Route::put('profile','ProfileController@update')->name('profiles.update');
