@@ -6,7 +6,7 @@
 <div class="basic-info">
     <div class="container">
       <div class="row">
-  
+    
   
         <div class="basic-info-box">
           <div class="row">
