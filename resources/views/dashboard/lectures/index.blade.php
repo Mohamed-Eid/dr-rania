@@ -63,7 +63,7 @@
                                         <td>
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal"
                                                 data-target="#modal-default-{{ $lecture->id }}">
-                                                <i class="fa fa-file-image-o"></i> @lang('site.view_pdf')
+                                                <i class="fa fa-file-image-o"></i> @lang('site.view_video')
                                             </button>
                                             <div class="modal fade" id="modal-default-{{ $lecture->id }}">
                                                 <div class="modal-dialog  modal-dialog-centered modal-lg">
