@@ -20,12 +20,12 @@
 
                         <!-- BUTTON TRIGGER MODAL -->
                         <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#esteemPopup-1">
+                            data-target="#esteemPopup-{{ $esteem->id }}">
                             Read More
                         </button>
 
                         <!--  MODAL -->
-                        <div class="modal fade" id="esteemPopup-1" tabindex="-1" aria-labelledby="esteemLabel"
+                        <div class="modal fade" id="esteemPopup-{{ $esteem->id }}" tabindex="-1" aria-labelledby="esteemLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-scrollable">
                                 <div class="modal-content">
@@ -49,7 +49,7 @@
             @endforeach
 
             <div class="esteem-view-more col-12 text-center">
-                <a href="international-esteem.php" class="btn btn-primary"> View More Letters </a>
+                <a href="{{ route('frontend.esteems.index') }}" class="btn btn-primary"> View More Letters </a>
             </div>
 
         </div>

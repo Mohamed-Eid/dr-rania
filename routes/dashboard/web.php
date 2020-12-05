@@ -61,8 +61,10 @@ Route::group(
                 Route::delete('delete_slider/{slider}','ExcellenceCenterController@delete_slider')->name('delete_slider');
 
                 Route::post('store_services','ExcellenceCenterController@store_services')->name('store_services');
-                Route::put('update_services/{publication}','ExcellenceCenterController@update_services')->name('update_services');
-                Route::delete('delete_services/{publication}','ExcellenceCenterController@delete_services')->name('delete_services');
+                
+                Route::put('update_services/{service}','ExcellenceCenterController@update_services')->name('update_services');
+                
+                Route::delete('delete_services/{service}','ExcellenceCenterController@delete_services')->name('delete_services');
 
 
 
@@ -78,6 +80,7 @@ Route::group(
                 Route::resource('/lectures','LectureController')->except(['show']);
                 Route::resource('/workshops','WorkshopController')->except(['show']);
                 Route::resource('/esteems','EsteemController')->except(['show']);
+                Route::resource('/subscribers','SubscriberController')->only(['index','destroy']);
 
 
                 Route::get('settings/all','SettingController@all')->name('settings.all_settings');

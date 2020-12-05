@@ -62,6 +62,19 @@ function get_snippts($text , $wordCount = 30){
       );
 }
 
+function home_publications(){
+    return [
+        'book'     => \App\Publication::where('type','book')->first(), 
+        'research' => \App\Publication::where('type','research')->first(),
+        'article'  => \App\Publication::where('type','article')->first()
+    ];
+}
+
+function is_current_route($route){
+    if(request()->route()->getName() == $route)
+        return true;
+    return false;
+}
  
 //setings helpers
 function get_settings_by_class($class){

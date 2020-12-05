@@ -45,7 +45,7 @@
 <!-- END CONGRESS SECTION -->
 
 <!-- START INTERNATIONAL ESTEEM SECTION -->
-@include('frontend.home.esteems')
+@include('frontend.home.esteems') 
 <!-- END INTERNATIONAL ESTEEM SECTION -->
 
 @endsection

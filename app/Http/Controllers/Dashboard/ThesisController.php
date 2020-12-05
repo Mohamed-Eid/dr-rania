@@ -87,8 +87,6 @@ class ThesisController extends Controller
             'student_name'    => 'required',
             'supervisors'     => 'required',
             'discussion_year' => 'required',
-            'image'           => 'required',
-            'pdf'             => 'required|mimes:pdf|max:10000',
         ]);
 
         $data = $request->except(['pdf','image']);

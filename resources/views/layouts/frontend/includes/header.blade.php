@@ -113,7 +113,7 @@
         </div>
 
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"> <span> Dr. </span> Rania </a>
+            <a class="navbar-brand" href="{{ route('frontend.index') }}"> <span> Dr. </span> Rania </a>
             <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -121,50 +121,69 @@
 
             <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
                 <div class="navbar-nav main-nav ml-auto">
-                    <a class="nav-link active" href="{{ route('frontend.index') }}">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link {{ is_current_route('frontend.index') ? 'active' : ''  }}" href="{{ route('frontend.index') }}">Home <span class="sr-only">(current)</span></a>
 
                     <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle cv-link" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             CV Overview
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('frontend.pages.basic_info') }}"> Dr.Rania</a>
-                            <a class="dropdown-item" href="{{ route('frontend.esteems.index') }}">International Esteem</a>
-                            <a class="dropdown-item" href="{{ route('frontend.thesis.index') }}">Supervise Thesis</a>
-                            <a class="dropdown-item" href="{{ route('frontend.certifications.index') }}">Certifications</a>
+                            <a class="dropdown-item cv-item {{ is_current_route('frontend.pages.basic_info') ? 'is_active' : ''  }}" href="{{ route('frontend.pages.basic_info') }}"> Dr.Rania</a>
+                            <a class="dropdown-item cv-item {{ is_current_route('frontend.esteems.index') ? 'is_active' : ''  }}" href="{{ route('frontend.esteems.index') }}">International Esteem</a>
+                            <a class="dropdown-item cv-item {{ is_current_route('frontend.thesis.index') ? 'is_active' : ''  }}" href="{{ route('frontend.thesis.index') }}">Supervise Thesis</a>
+                            <a class="dropdown-item cv-item {{ is_current_route('frontend.certifications.index') ? 'is_active' : ''  }}" href="{{ route('frontend.certifications.index') }}">Certifications</a>
                         </div>
                     </div>
 
                     <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle pub-link " href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Publications
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('frontend.publications.researches.index') }}"> Original Research </a>
-                            <a class="dropdown-item" href="{{ route('frontend.publications.articles.index') }}">Review Articles </a>
-                            <a class="dropdown-item" href="{{ route('frontend.publications.books.index') }}">Book Chapter</a>
+                            <a class="dropdown-item pub-item {{ is_current_route('frontend.publications.researches.index') ? 'is_active' : ''  }}" href="{{ route('frontend.publications.researches.index') }}"> Original Research </a>
+                            <a class="dropdown-item pub-item {{ is_current_route('frontend.publications.articles.index') ? 'is_active' : ''  }}" href="{{ route('frontend.publications.articles.index') }}">Review Articles </a>
+                            <a class="dropdown-item pub-item {{ is_current_route('frontend.publications.books.index') ? 'is_active' : ''  }}" href="{{ route('frontend.publications.books.index') }}">Book Chapter</a>
                         </div>
                     </div>
 
                     <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        <a class="nav-link dropdown-toggle tech-link" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Teaching
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('frontend.teaching.workshops.index') }}"> Training Workshops </a>
-                            <a class="dropdown-item" href="{{ route('frontend.teaching.lectures.index') }}"> Video Lectures </a>
+                            <a class="dropdown-item tech-item {{ is_current_route('frontend.teaching.workshops.index') ? 'is_active' : ''  }}" href="{{ route('frontend.teaching.workshops.index') }}"> Training Workshops </a>
+                            <a class="dropdown-item tech-item {{ is_current_route('frontend.teaching.lectures.index') ? 'is_active' : ''  }}" href="{{ route('frontend.teaching.lectures.index') }}"> Video Lectures </a>
                         </div>
                     </div> 
 
-                    <a class="nav-link" href="{{ route('frontend.congress.index') }}">Congress</a>
-                    <a class="nav-link" href="{{ route('frontend.pages.center_of_excellence') }}">Pelvic Floor Center Of Excellence</a>
-                    <a class="nav-link" href="{{ route('frontend.pages.center_of_cairo') }}">Pelvic Floor Center In Cairo University</a>
-                    <a class="nav-link" href="{{ route('frontend.pages.contact_us') }}">Contact Dr.Rania</a>
+                    <a class="nav-link  {{ is_current_route('frontend.congress.index') ? 'active' : ''  }}" href="{{ route('frontend.congress.index') }}">Congress</a>
+                    <a class="nav-link  {{ is_current_route('frontend.pages.center_of_excellence') ? 'active' : ''  }}" href="{{ route('frontend.pages.center_of_excellence') }}">Pelvic Floor Center Of Excellence</a>
+                    <a class="nav-link  {{ is_current_route('frontend.pages.center_of_cairo') ? 'active' : ''  }}" href="{{ route('frontend.pages.center_of_cairo') }}">Pelvic Floor Center In Cairo University</a>
+                    <a class="nav-link  {{ is_current_route('frontend.pages.contact_us') ? 'active' : ''  }}" href="{{ route('frontend.pages.contact_us') }}">Contact Dr.Rania</a>
                 </div>
             </div>
         </div>
     </nav>
     <!-- END NAVIGATION BAR -->
+
+    @push('scripts')
+        <script>
+            $(document).ready(function(){
+                if ($('.cv-item').hasClass('is_active')) {
+                    $('.cv-link').addClass('active');
+                }
+
+                if ($('.pub-item').hasClass('is_active')) {
+                    $('.pub-link').addClass('active');
+                }
+
+                if ($('.tech-item').hasClass('is_active')) {
+                    $('.tech-link').addClass('active');
+                }
+            });
+
+        </script>
+    @endpush

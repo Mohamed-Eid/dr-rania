@@ -21,7 +21,7 @@ class ExcellenceCenterController extends Controller
 
         return view('dashboard.pages.excellence_center',compact('sliders','services'));
     }
-
+ 
     /**
      * ======================= AWARDS ============================
      */
@@ -68,7 +68,7 @@ class ExcellenceCenterController extends Controller
             'body' => 'required',
             'image' => 'required',
         ]);
-
+ 
         $data = $request->except('image');
         $data['image'] = upload_image_without_resize('center_images',$request->image);
         Service::create($data);
@@ -76,6 +76,7 @@ class ExcellenceCenterController extends Controller
     }
 
     public function update_services(Request $request, Service $service){
+       // dd($service);
         $request->validate([
             'title' => 'required',
             'body' => 'required',
@@ -86,9 +87,10 @@ class ExcellenceCenterController extends Controller
             $data['image'] = upload_image_without_resize('center_images',$request->image);
         }
         
+        //dd($data);
         $service->update($data);
 
-        return redirect()->route('dashboard.center.index')->with('success','Service updated Successfuly');
+        return redirect()->back()->with('success','Service updated Successfuly');
     }
 
     public function delete_services(Service $service){

@@ -17,10 +17,10 @@
                             <div class="teaching-txt">
                                 {{$teach->body}}
                             </div>
-                            <a class="btn btn-primary float-r" href="training-workshop.php"> View More </a>
+                            <a class="btn btn-primary float-r" href="{{ route('frontend.teaching.workshops.index') }}"> View More </a>
                         </div>
                     </div>
-                </div>                    
+                </div>                     
                 @endforeach
 
 
@@ -36,7 +36,7 @@
                             <div class="teaching-txt">
                                 {{$teach->body}} 
                             </div>
-                            <a class="btn btn-primary float-r" href="video-lectures.php"> View More </a>
+                            <a class="btn btn-primary float-r" href="{{ route('frontend.teaching.lectures.index') }}"> View More </a>
                         </div>
                     </div>
                 </div>                    
