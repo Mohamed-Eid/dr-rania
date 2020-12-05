@@ -8,25 +8,19 @@
         <div class="row">
             <div class="profile-info col-sm-12 col-lg-8">
                 <h1>
-                    <span> Rania Farouk El Sayed </span>MD, PhD <br>
-                    Lecturer in the Radiology Department <br>
-                    Cairo University, Cairo, Egypt.
-                </h1>
+                    <span> {{get_setting_by_key('dr_name')->value}} </span>{!!  nl2br (get_setting_by_key('dr_bio')->value) !!}
+                  </h1>
                 <h4> Profile: </h4>
                 <div class="txt">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.
+                    {!! get_snippts(get_setting_by_key('dr_text')->value , 60) !!} ....
                 </div>
-                <a class="btn btn-primary mr-auto float-r" href="basic-info.php"> Read More </a>
+                <a class="btn btn-primary mr-auto float-r" href="{{ route('frontend.pages.basic_info') }}"> Read More </a>
             </div>
             <div class="profile-img col-sm-12 col-lg-4">
-                <img class="img-fluid" src="{{ asset('frontend/images/profile.jpg') }}">
+                <img class="img-fluid" src="{{get_setting_by_key('dr_image')->image_path}}">
             </div>
         </div>
-    </div>
+    </div> 
 </div>
 <!-- END PROFILE SECTION -->
 
