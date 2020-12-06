@@ -31,6 +31,16 @@
                     <i class="fa fa-gift"></i><span>@lang('site.awards')</span></a>
             </li>
 
+            <li class="{{ route('dashboard.home_publications') == url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.home_publications') }}">
+                    <i class="fa fa-newspaper-o"></i><span>Home Publications</span></a>
+            </li>
+
+            <li class="{{ route('dashboard.case_author') == url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.case_author') }}">
+                    <i class="fa fa-briefcase"></i><span>Case Author</span></a>
+            </li>
+
             <li class="{{ route('dashboard.esteems.index') == url()->current() ? 'active' : '' }}">
                 <a href="{{ route('dashboard.esteems.index') }}">
                     <i class="fa fa-question"></i><span>@lang('site.esteems')</span></a>
@@ -76,16 +86,15 @@
                 </a>
             </li>
 
-            <li class="{{ route('dashboard.users.index') == url()->current() ? 'active' : '' }}">
-                <a href="{{ route('dashboard.users.index') }}">
-                    <i class="fa fa-users"></i><span>@lang('site.users')</span></a>
-            </li>
-
-
             <li class="{{route('dashboard.excellence_center.index')==url()->current() ? 'active' : '' }}">
                 <a href="{{ route('dashboard.excellence_center.index') }}">
                     <i class="fa  fa-gears"></i> @lang('site.excellence_center')
                 </a>
+            </li>
+
+            <li class="{{ route('dashboard.users.index') == url()->current() ? 'active' : '' }}">
+                <a href="{{ route('dashboard.users.index') }}">
+                    <i class="fa fa-users"></i><span>@lang('site.users')</span></a>
             </li>
 
             <li class="{{ route('dashboard.contact.center_index') == url()->current() ? 'active' : '' }}">

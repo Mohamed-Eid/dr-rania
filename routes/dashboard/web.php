@@ -69,7 +69,9 @@ Route::group(
 
 
 
-
+                Route::get('case_author','ObjectController@case_author')->name('case_author');
+                Route::get('home_publications','ObjectController@home_publications')->name('home_publications');
+                Route::put('case_author','ObjectController@edit_case_author')->name('edit_case_author');
 
 
                 Route::resource('/awards','AwardController')->except(['show']);

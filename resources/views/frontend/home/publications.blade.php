@@ -3,47 +3,22 @@
         <h2> Publications </h2>
         <div class="row">
 
+            @foreach (get_objects_by_class('home_publications') as $index => $item)
             <div class="publication-item col-lg-4">
                 <div class="publication-img">
-                    <img src="{{ asset('frontend/images/pub.jpg') }}" alt="An Publication Image"
+                    <img src="{{ image_path('object_images',$item->value['image'])}}" alt="An Publication Image"
                         class="img-fluid">
-                    <span class="publisher"> Publisher </span>
-                    <span class="pub-year"> 2020 </span>
+                    <span class="publisher"> {{$item->value['publisher']}} </span>
+                    <span class="pub-year"> {{$item->value['year']}} </span>
                 </div>
                 <div class="publication-info">
-                    <div class="title"> <span> Title: </span> Publication 1 </div>
-                    <div class="author"> <span> Author Name: </span> Author 1 </div>
-                    <a href="{{ route('forntend.publications.researches.index') }}" class="btn btn-primary float-r"> More Researches </a>
+                    <div class="title"> <span> Title: </span> {{$item->value['title']}}</div>
+                    <div class="author"> <span> Author Name: </span> {{$item->value['author_name']}} </div>
+                    <a href="{{$item->value['url']}}" class="btn btn-primary float-r"> More {{ucwords($item->value['type'])}} </a>
                 </div>
             </div>
+            @endforeach
 
-            <div class="publication-item col-lg-4">
-                <div class="publication-img">
-                    <img src="{{ asset('frontend/images/pub.jpg') }}" alt="An Publication Image"
-                        class="img-fluid">
-                    <span class="publisher"> Publisher </span>
-                    <span class="pub-year"> 2020 </span>
-                </div>
-                <div class="publication-info">
-                    <div class="title"> <span> Title: </span> Publication 2 </div>
-                    <div class="author"> <span> Author Name: </span> Author 2 </div>
-                    <a href="{{ route('forntend.publications.articles.index') }}" class="btn btn-primary float-r"> More Articles </a>
-                </div>
-            </div>
-
-            <div class="publication-item col-lg-4">
-                <div class="publication-img">
-                    <img src="{{ asset('frontend/images/pub.jpg') }}" alt="An Publication Image"
-                        class="img-fluid">
-                    <span class="publisher"> Publisher </span>
-                    <span class="pub-year"> 2020 </span>
-                </div>
-                <div class="publication-info">
-                    <div class="title"> <span> Title: </span> Publication 3 </div>
-                    <div class="author"> <span> Author Name: </span> Author 3 </div>
-                    <a href="{{ route('forntend.publications.books.index') }}" class="btn btn-primary float-r"> More Books </a>
-                </div>
-            </div>
 
         </div>
     </div>

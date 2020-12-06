@@ -81,6 +81,11 @@ function get_settings_by_class($class){
     return \App\Setting::where('class',$class)->get();
 }
 
+//setings helpers
+function get_objects_by_class($class){
+    return \App\HomeObject::where('class',$class)->get();
+}
+
 // function get_settings_by_class_with($class){
 //     return \App\Setting::where('class',$class);
 // }
@@ -89,5 +94,8 @@ function get_setting_by_key($key){
     return \App\Setting::where('key',$key)->first();
 }
 
+function image_path($path,$image_name){
+    return asset("uploads/$path/".$image_name);
+}
 
 ?>

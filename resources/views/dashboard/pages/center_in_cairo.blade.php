@@ -15,9 +15,12 @@
                         <div class="col-md-12">
                           <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                                
+                                @php
+                                    $titles = ['Header', 'Awards', 'Publications', 'Workshop' , 'Videos' , 'Photo Album']
+                                @endphp
+
                                 @for ($i = 1; $i <= 6; $i++)
-                                <li class="{{ $i==1 ? 'active' : '' }}"><a href="#tab_{{$i}}" data-toggle="tab">SECTION #{{$i}}</a></li>               
+                                <li class="{{ $i==1 ? 'active' : '' }}"><a href="#tab_{{$i}}" data-toggle="tab">{{$titles[$i-1]}}</a></li>               
                                 @endfor         
                                 
                             </ul>
