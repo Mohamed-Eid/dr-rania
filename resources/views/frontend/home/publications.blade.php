@@ -3,6 +3,13 @@
         <h2> Publications </h2>
         <div class="row">
 
+            @php
+                $links = [
+                    'book'     => route('frontend.publications.books.index'),
+                    'research' => route('frontend.publications.researches.index'),
+                    'article'  => route('frontend.publications.articles.index'),
+                ]
+            @endphp
             @foreach (get_objects_by_class('home_publications') as $index => $item)
             <div class="publication-item col-lg-4">
                 <div class="publication-img">
@@ -14,7 +21,7 @@
                 <div class="publication-info">
                     <div class="title"> <span> Title: </span> {{$item->value['title']}}</div>
                     <div class="author"> <span> Author Name: </span> {{$item->value['author_name']}} </div>
-                    <a href="{{$item->value['url']}}" class="btn btn-primary float-r"> More {{ucwords($item->value['type'])}} </a>
+                    <a href="{{ $links[$item->value['type']] }}" class="btn btn-primary float-r"> More {{ucwords($item->value['type'])}} </a>
                 </div>
             </div>
             @endforeach

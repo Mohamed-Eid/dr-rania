@@ -65,12 +65,7 @@
                                                 </select>
                                             </div>  
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>More URL</label>
-                                                <input type="text" name="{{$item->id}}[url]" class="form-control" value="{{ $item->value['url'] ?? '' }}" >
-                                            </div>  
-                                        </div>
+
                                     </div>
                                 </div>
 
