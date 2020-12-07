@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\User;
-use function foo\func;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -16,10 +15,6 @@ class UserController extends Controller
 
     public function __construct()
     {
-        // $this->middleware(['permission:read_users'])->only('index');
-        // $this->middleware(['permission:create_users'])->only('create');
-        // $this->middleware(['permission:update_users'])->only('edit');
-        // $this->middleware(['permission:delete_users'])->only('destroy');
 
     }
 

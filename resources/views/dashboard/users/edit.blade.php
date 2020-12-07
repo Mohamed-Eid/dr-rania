@@ -57,57 +57,7 @@
                                  style="width: 100px;">
                         </div>
 
-                        
-                        <div class="form-group">
-                            <label>@lang('site.permission')</label>
-
-                            @php
-                               // $models = ['users' , 'categories' , 'products' , 'clients' , 'orders'];
-                                $models = [];
-                                $x = [];
-                                foreach( config('laratrust_seeder.role_structure.super_admin') as $key=> $value){
-                                    array_push($models,$key);
-                                    $x[$key] = explode(',',$value);
-                                }
-                                //dd($x);
-                               $data = config('laratrust_seeder.permissions_map');
-                                $maps   = ['create' , 'read' , 'update' , 'delete'];
-                            @endphp
-
-                            <div class="nav-tabs-custom">
-
-                                <ul class="nav nav-tabs">
-                                    @foreach($models as $index=>$model)
-                                        <li class="{{ $index == 0 ? 'active' : '' }}"><a href="#{{$model}}"
-                                                                                         data-toggle="tab">@lang('site.'.$model)</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                                
-                                
-                                <div class="tab-content">
-                                    @foreach($models as $index=>$model)
-                                    {{-- @php dd($value) @endphp --}}
-                                        <div class="tab-pane {{ $index == 0 ? 'active' : '' }}" id="{{$model}}">
-                                            @foreach($x as $model_name => $maps)
-                                                @foreach ($maps as $map)
-                                                    {{-- @php dd($map) @endphp     --}}
-                                                    @if ($model == $model_name)
-                                                    <label><input type="checkbox" name="permissions[]"
-                                                        value="{{$data[$map].'_'.$model_name}}" {{ $user->hasPermission($data[$map].'_'.$model) ? 'checked' : '' }}> @lang("site.$data[$map]")</label>
-    
-                                                    @endif
-                                                @endforeach                                    
-                                            @endforeach
-                                        </div><!-- /.tab-pane -->
-                                    @endforeach
-                                </div>
-                                <!-- /.tab-content -->
-                            </div>
-                            <!-- nav-tabs-custom -->
-
-                        </div>
-
+ 
 
                         <div class="form-group">
                             <button class="btn btn-primary" type="submit"><i class="fa fa-edit"></i>@lang('site.edit')
